@@ -46,8 +46,7 @@ class ForeignKeySearchWidget(forms.Widget):
     def label_for_value(self, value):
         key = self.rel.get_related_field().name
         try:
-            obj = self.rel.to._default_manager.using(
-                self.db).get(**{key: value})
+            obj = self.rel.to._default_manager.get(**{key: value})
             return '%s' % escape(Truncator(obj).words(14, truncate='...'))
         except (ValueError, self.rel.to.DoesNotExist):
             return ""

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_filters',
     'xadmin',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,8 @@ USE_TZ = False
 STATIC_URL = '/static/'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+REST_FRAMEWORK = {
+    # 'PAGE_SIZE': 10
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

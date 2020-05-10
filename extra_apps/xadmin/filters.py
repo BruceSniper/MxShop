@@ -463,7 +463,7 @@ class MultiSelectFieldListFilter(ListFieldFilter):
         if not self.cache_config['enabled']:
             return None
         c = caches(self.cache_config['cache'])
-        return c.get(self.cache_config['key'] % self.field_path)
+        return get(self.cache_config['key'] % self.field_path)
 
     def set_cached_choices(self, choices):
         if not self.cache_config['enabled']:
